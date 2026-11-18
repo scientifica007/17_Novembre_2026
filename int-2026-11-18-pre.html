@@ -68,7 +68,7 @@ const PRE=[
    "ضيق الوقت وكثافة البرنامج",
    "صعوبة ترجمة أهداف البرنامج إلى مهام عملية",
    "صعوبة تصميم تقويم مهني موضوعي",
-   "عائق آخر", "العدد الكبير للمتكونين في الفوج/الفرع"
+   "العدد الكبير للمتكونين في الفوج/الفرع", "عائق آخر"
   ]
  ]
 ];
@@ -85,7 +85,7 @@ function render(){
   const group=document.createElement("div");group.className=item[1]==="scale"?"scale":"options";
   opts.forEach((label,j)=>{
    const line=document.createElement("label");line.className=item[1]==="scale"?"choice":"option";
-   const radio=document.createElement("input");radio.type="radio";radio.name="q"+(i+1);radio.value=String(j+1);radio.required=true;
+   const radio=document.createElement("input");radio.type="radio";radio.name="q"+(i+1);radio.value=String(item[1]==="options"&&i===6?(j===7?9:j===8?8:j+1):j+1);radio.required=true;
    line.appendChild(radio);
    if(item[1]==="scale"){const digit=document.createElement("b");digit.textContent=String(j+1);line.appendChild(digit)}
    line.appendChild(document.createTextNode(label));group.appendChild(line);
