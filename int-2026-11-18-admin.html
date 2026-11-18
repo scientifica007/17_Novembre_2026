@@ -76,7 +76,7 @@ const PRE=[
    "ضيق الوقت وكثافة البرنامج",
    "صعوبة ترجمة أهداف البرنامج إلى مهام عملية",
    "صعوبة تصميم تقويم مهني موضوعي",
-   "عائق آخر", "العدد الكبير للمتكونين في الفوج/الفرع"
+   "العدد الكبير للمتكونين في الفوج/الفرع", "عائق آخر"
   ]
  ]
 ];
@@ -131,7 +131,7 @@ function drawChartGroup(phase,definitions){
   group.forEach(record=>{
    const raw=record.answers&&record.answers[qKey];
    const val=Number(raw);
-   if(Number.isInteger(val)&&val>=1&&val<=labels.length){counts[val-1]++;usable++}
+   if(Number.isInteger(val)&&val>=1&&val<=labels.length){const bucket=phase==="pre"&&index===6&&question[1]==="options"?(val===8?8:val===9?7:val-1):val-1;counts[bucket]++;usable++}
   });
   const card=makeElement("article","chart-card");
   card.append(makeElement("h4","chart-question",(index+1)+". "+question[0]));
