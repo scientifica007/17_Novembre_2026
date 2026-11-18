@@ -1,7 +1,35 @@
-<!doctype html><html lang="ar" dir="rtl"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>لوحة المفتش — TAG</title><style>body{margin:0;background:#f2f6f7;color:#19384a;font:16px/1.8 system-ui,Tahoma,Arial}header{background:#123447;color:white;padding:22px 5%}h1{font-size:1.6rem;margin:0}main{max-width:1000px;margin:20px auto;padding:0 16px}.panel{background:white;border:1px solid #d8e5e8;border-radius:15px;margin:16px 0;padding:22px;box-shadow:0 8px 22px #15364710}input{font:inherit;border:1px solid #cbdde3;border-radius:8px;padding:9px;width:100%;max-width:500px;display:block;margin:5px 0 14px}button{font:inherit;cursor:pointer;background:#087f82;border:0;color:white;border-radius:8px;padding:9px 17px;margin:4px}button.alt{background:#e7f0f1;color:#113448}.status{color:#9b312a}.comment{border-right:4px solid #087f82;background:#f3f8f9;border-radius:7px;padding:10px 15px;margin:10px 0;overflow-wrap:anywhere;white-space:pre-wrap}.scroll{overflow:auto}table{width:100%;border-collapse:collapse;font-size:.85rem}td,th{padding:9px;border:1px solid #dce5e9;text-align:right;vertical-align:top}th{background:#edf4f5}.small{color:#526c7a;font-size:.9rem}a{color:#087f82}</style>
+<!doctype html><html lang="ar" dir="rtl"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>لوحة المفتش — TAG</title><style>body{margin:0;background:#f2f6f7;color:#19384a;font:16px/1.8 system-ui,Tahoma,Arial}header{background:#123447;color:white;padding:22px 5%}h1{font-size:1.6rem;margin:0}main{max-width:1000px;margin:20px auto;padding:0 16px}.panel{background:white;border:1px solid #d8e5e8;border-radius:15px;margin:16px 0;padding:22px;box-shadow:0 8px 22px #15364710}input{font:inherit;border:1px solid #cbdde3;border-radius:8px;padding:9px;width:100%;max-width:500px;display:block;margin:5px 0 14px}button{font:inherit;cursor:pointer;background:#087f82;border:0;color:white;border-radius:8px;padding:9px 17px;margin:4px}button.alt{background:#e7f0f1;color:#113448}.status{color:#9b312a}.comment{border-right:4px solid #087f82;background:#f3f8f9;border-radius:7px;padding:10px 15px;margin:10px 0;overflow-wrap:anywhere;white-space:pre-wrap}.scroll{overflow:auto}table{width:100%;border-collapse:collapse;font-size:.85rem}td,th{padding:9px;border:1px solid #dce5e9;text-align:right;vertical-align:top}th{background:#edf4f5}.small{color:#526c7a;font-size:.9rem}a{color:#087f82} 
+/* لوحة إحصاءات المفتش: مخططات داخلية دون مكتبات أو طلبات إضافية */
+.chart-note{color:#526c7a;margin-top:0}
+.charts-sections{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:20px;align-items:start}
+.charts-section{min-width:0}
+.charts-section-title{margin:0 0 6px;font-size:1.18rem}
+.charts-section-count{color:#526c7a;font-size:.9rem;margin:0 0 14px}
+.chart-card{background:#fafcfd;border:1px solid #dae5e9;border-radius:12px;padding:15px;margin:0 0 13px;min-width:0}
+.chart-question{margin:0 0 14px;line-height:1.7;font-size:1rem;font-weight:700}
+.chart-summary{font-size:.87rem;color:#425c6a;margin:-7px 0 13px}
+.chart-option{margin:0 0 12px}
+.chart-labelrow{display:flex;justify-content:space-between;gap:9px;align-items:baseline;font-size:.86rem}
+.chart-label{min-width:0;overflow-wrap:anywhere}
+.chart-value{white-space:nowrap;flex-shrink:0;font-weight:700;direction:ltr;unicode-bidi:isolate;font-variant-numeric:tabular-nums}
+.chart-track{height:11px;background:#e7eef1;border-radius:100px;margin-top:4px;overflow:hidden}
+.chart-bar{display:block;height:100%;border-radius:100px;background:#087f82}
+.chart-bar.scale-1{background:#b2554d}.chart-bar.scale-2{background:#d89747}.chart-bar.scale-3{background:#b3a25f}.chart-bar.scale-4{background:#4e9ba0}.chart-bar.scale-5{background:#157b74}
+.charts-empty{padding:19px;background:#f3f7f8;border:1px dashed #bcd0d7;border-radius:10px;color:#526c7a}
+.chart-legend{font-size:.86rem;color:#526c7a;margin:0 0 18px}
+@media(max-width:560px){.charts-sections{display:block}.chart-card{padding:12px}.chart-labelrow{font-size:.8rem}}
+</style>
 <header><h1>لوحة المفتش — لقاء أساتذة TAG</h1><div>معهد شيحاني بشير – تبسة | 17/11/2026</div></header>
 <main><section id="signin" class="panel"><h2>الدخول بصلاحية المفتش</h2><p class="small">تستخدم هذه اللوحة حساب Supabase المصرّح له، ولا تتطلب أي حسابات للأساتذة.</p><form id="auth"><label>البريد الإلكتروني<input type="email" id="email" autocomplete="username" required></label><label>كلمة المرور<input id="pw" type="password" autocomplete="current-password" required></label><button>دخول</button></form><p class="status" id="loginmsg"></p></section>
-<section id="dash" style="display:none"><div class="panel"><h2>إجابات الأساتذة ومقترحاتهم</h2><p class="small">لا توجد أسماء ضمن الإجابات. يُمنع عرض الملاحظات النصية مباشرة في الاجتماع إذا احتوت على تفاصيل قد تكشف صاحبها.</p><button id="refresh">تحديث</button><button class="alt" id="csv">CSV</button><button class="alt" id="json">JSON</button><button class="alt" id="logout">خروج</button> <a href="./?view=results" target="_blank" rel="noopener">عرض الإحصاءات المجمعة</a><p id="totals"></p></div><div class="panel"><h2>الملاحظات الحرة</h2><div id="comments"></div></div><div class="panel"><h2>جدول جميع الاستجابات</h2><div class="scroll"><table><thead><tr><th>رقم داخلي</th><th>المرحلة</th><th>الوقت</th><th>الإجابات</th></tr></thead><tbody id="data"></tbody></table></div></div></section></main>
+<section id="dash" style="display:none"><div class="panel"><h2>إجابات الأساتذة ومقترحاتهم</h2><p class="small">لا توجد أسماء ضمن الإجابات. يُمنع عرض الملاحظات النصية مباشرة في الاجتماع إذا احتوت على تفاصيل قد تكشف صاحبها.</p><button id="refresh">تحديث</button><button class="alt" id="csv">CSV</button><button class="alt" id="json">JSON</button><button class="alt" id="logout">خروج</button> <a href="./?view=results" target="_blank" rel="noopener">عرض الإحصاءات المجمعة</a><p id="totals"></p></div>
+<div class="panel" id="charts-panel">
+<h2>الرسوم البيانية للإجابات الموثقة</h2>
+<p class="chart-note">تُستخرج هذه الرسوم من الإجابات المحفوظة في قاعدة البيانات بعد تسجيل الدخول. يظهر عدد الإجابات والنسبة المئوية لكل اختيار؛ وتبقى الملاحظات النصية في قسمها الخاص أدناه.</p>
+<p class="chart-legend">مقياس الموافقة: 1 = لا أوافق إطلاقًا، 5 = أوافق تمامًا. النسب محسوبة من إجابات السؤال المعني.</p>
+<div class="charts-sections">
+<section class="charts-section" aria-labelledby="chart-pre-heading"><h3 id="chart-pre-heading" class="charts-section-title">الاستبيان القبلي</h3><p id="chart-pre-count" class="charts-section-count"></p><div id="chart-pre" aria-live="polite"></div></section>
+<section class="charts-section" aria-labelledby="chart-post-heading"><h3 id="chart-post-heading" class="charts-section-title">الاستبيان البعدي</h3><p id="chart-post-count" class="charts-section-count"></p><div id="chart-post" aria-live="polite"></div></section>
+</div></div><div class="panel"><h2>الملاحظات الحرة</h2><div id="comments"></div></div><div class="panel"><h2>جدول جميع الاستجابات</h2><div class="scroll"><table><thead><tr><th>رقم داخلي</th><th>المرحلة</th><th>الوقت</th><th>الإجابات</th></tr></thead><tbody id="data"></tbody></table></div></div></section></main>
 <script>
 "use strict";
 const URL_BASE="https://uxtsyzyotnohxvopgcmh.supabase.co",KEY="sb_publishable_hObSzRf1Sf9HTrUppubkXA_BKT5ZMJe",E=id=>document.getElementById(id);
@@ -9,7 +37,76 @@ let token=sessionStorage.getItem("tag_owner_session")||"",rows=[];
 async function call(path,payload,auth){const h={apikey:KEY,"Content-Type":"application/json"};if(auth)h.Authorization="Bearer "+auth;const r=await fetch(URL_BASE+path,{method:"POST",headers:h,body:JSON.stringify(payload||{})});const txt=await r.text();let j;try{j=JSON.parse(txt)}catch(_){j={message:txt}}if(!r.ok)throw Error(j.error_description||j.message||j.error||"HTTP "+r.status);return j}
 E("auth").onsubmit=async e=>{e.preventDefault();E("loginmsg").textContent="جارٍ التحقق...";try{const a=await call("/auth/v1/token?grant_type=password",{email:E("email").value.trim(),password:E("pw").value});token=a.access_token;sessionStorage.setItem("tag_owner_session",token);E("pw").value="";await load()}catch(err){E("loginmsg").textContent=err.message}};
 async function load(){try{rows=await call("/rest/v1/rpc/tag_20261117_private_results",{},token);E("signin").style.display="none";E("dash").style.display="block";draw()}catch(err){E("signin").style.display="block";E("dash").style.display="none";E("loginmsg").textContent="لا توجد صلاحية أو انتهت الجلسة: "+err.message;sessionStorage.removeItem("tag_owner_session");token=""}}
-function draw(){E("totals").textContent="قبلي: "+rows.filter(r=>r.phase==="pre").length+" | ختامي: "+rows.filter(r=>r.phase==="post").length+" | الإجمالي: "+rows.length;const c=E("comments"),b=E("data");c.replaceChildren();b.replaceChildren();let n=0;rows.forEach(r=>{if(r.comment){n++;const p=document.createElement("div");p.className="comment";p.textContent=(r.phase==="pre"?"قبلي":"ختامي")+" | إجابة "+r.id+"\n"+r.comment;c.append(p)}const tr=document.createElement("tr");[r.id,r.phase,new Date(r.created_at).toLocaleString("ar-DZ"),JSON.stringify(r.answers)].forEach(v=>{const td=document.createElement("td");td.textContent=v;tr.append(td)});b.append(tr)});if(!n)c.textContent="لا توجد مقترحات نصية بعد."}
+function draw(){E("totals").textContent="قبلي: "+rows.filter(r=>r.phase==="pre").length+" | ختامي: "+rows.filter(r=>r.phase==="post").length+" | الإجمالي: "+rows.length;const c=E("comments"),b=E("data");c.replaceChildren();b.replaceChildren();let n=0;rows.forEach(r=>{if(r.comment){n++;const p=document.createElement("div");p.className="comment";p.textContent=(r.phase==="pre"?"قبلي":"ختامي")+" | إجابة "+r.id+"\n"+r.comment;c.append(p)}const tr=document.createElement("tr");[r.id,r.phase,new Date(r.created_at).toLocaleString("ar-DZ"),JSON.stringify(r.answers)].forEach(v=>{const td=document.createElement("td");td.textContent=v;tr.append(td)});b.append(tr)});if(!n)c.textContent="لا توجد مقترحات نصية بعد.";drawCharts()}
+
+/* تعريفات الأسئلة مستخرجة من الاستبيانين الأصليين لهذا الاجتماع */
+const PRE=[
+ ["أتعرف بدقة على أهداف التكوين الرسمية الخاصة بالمقياس أو الكفاءة التي أدرسها.","scale"],
+ ["أستطيع تفسير دور المقياس الذي أدرّسه ضمن المهنة ككل.","scale"],
+ ["أربط بين أهداف التكوين وأنشطة التعلم والامتحان النهائي قبل تنفيذ المقياس.","scale"],
+ ["في حصصي ينفذ المتكونون مهامًا فعلية أكثر مما يستمعون إلى الشرح.","scale"],
+ ["أستند إلى إنجازات قابلة للملاحظة والقياس للحكم على تحقق الأهداف.","scale"],
+ ["أستثمر نتائج التقويم لتحسين تخطيط الحصص اللاحقة.","scale"],
+ ["ما أبرز عائق أمام تطبيق هذا التصور؟","options",["ضيق الوقت","نقص التجهيزات والموارد","صعوبة تحويل البرنامج إلى مهام","مستوى المتكونين أو تفاوتهم","صعوبة بناء التقييمات","الحاجة إلى تطوير التأهيل البيداغوجي","عائق آخر"]]
+];
+const POST=[
+ ["أستطيع الآن ربط هدف رسمي بنشاط يقوم به المتكون ودليل ملموس على تحقيقه.","scale"],
+ ["أستطيع بناء امتحان يميز بين الأداء الكافي في وضع عادي والأداء المتقدم في وضع غير مألوف.","scale"],
+ ["أرى إمكانية عملية لتقليص الشرح المباشر لصالح نشاط المتكون دون التضحية بالأهداف.","scale"],
+ ["ما أول تغيير ستجربه في ممارستك؟","options",["مراجعة تخطيط المقياس بحسب الأهداف","تصميم امتحان شامل مع سلم أداء","جعل المتكون يبحث في مصادر موثوقة","رفع نسبة المهام التطبيقية في الحصة","تقويم الحصة وتحسين التخطيط اللاحق"]]
+];
+
+
+const CHART_SCALE_LABELS=["لا أوافق إطلاقًا","لا أوافق","محايد","أوافق","أوافق تمامًا"];
+function makeElement(tag,cls,content){
+ const n=document.createElement(tag);
+ if(cls)n.className=cls;
+ if(content!==undefined)n.textContent=content;
+ return n;
+}
+function drawChartGroup(phase,definitions){
+ const target=E("chart-"+phase),group=rows.filter(r=>r.phase===phase);
+ const name=phase==="pre"?"القبلي":"البعدي";
+ E("chart-"+phase+"-count").textContent="إجمالي المشاركات: "+group.length;
+ target.replaceChildren();
+ if(!group.length){
+  target.append(makeElement("p","charts-empty","لم تُسجَّل إجابات في الاستبيان "+name+" بعد."));
+  return;
+ }
+ definitions.forEach((question,index)=>{
+  const qKey="q"+(index+1);
+  const labels=question[1]==="scale"?CHART_SCALE_LABELS:question[2];
+  const counts=Array(labels.length).fill(0);
+  let usable=0;
+  group.forEach(record=>{
+   const raw=record.answers&&record.answers[qKey];
+   const val=Number(raw);
+   if(Number.isInteger(val)&&val>=1&&val<=labels.length){counts[val-1]++;usable++}
+  });
+  const card=makeElement("article","chart-card");
+  card.append(makeElement("h4","chart-question",(index+1)+". "+question[0]));
+  card.append(makeElement("p","chart-summary","عدد الإجابات على هذا السؤال: "+usable));
+  labels.forEach((label,i)=>{
+   const count=counts[i],pct=usable?(100*count/usable):0;
+   const option=makeElement("div","chart-option");
+   const top=makeElement("div","chart-labelrow");
+   top.append(makeElement("span","chart-label",label));
+   top.append(makeElement("strong","chart-value",count+" · "+pct.toFixed(1)+"%"));
+   const track=makeElement("div","chart-track");
+   const bar=makeElement("span","chart-bar"+(question[1]==="scale"?" scale-"+(i+1):""));
+   bar.style.width=pct+"%";
+   track.setAttribute("role","img");
+   track.setAttribute("aria-label",label+": "+count+" إجابة بنسبة "+pct.toFixed(1)+" بالمئة");
+   track.append(bar);option.append(top,track);card.append(option);
+  });
+  target.append(card);
+ });
+}
+function drawCharts(){
+ drawChartGroup("pre",PRE);
+ drawChartGroup("post",POST);
+}
+
 E("refresh").onclick=load;E("logout").onclick=()=>{sessionStorage.removeItem("tag_owner_session");token="";E("signin").style.display="block";E("dash").style.display="none";E("loginmsg").textContent="تم الخروج."};
 function save(name,s,type){const blob=new Blob(["\ufeff",s],{type});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1500)}
 E("json").onclick=()=>save("TAG-2026-11-17.json",JSON.stringify(rows,null,2),"application/json;charset=utf-8");E("csv").onclick=()=>{const q=x=>'"'+String(x??"").replace(/"/g,'""')+'"';const lines=[["id","phase","date","q1","q2","q3","q4","q5","q6","q7","comment"].join(",")];rows.forEach(r=>lines.push([r.id,r.phase,r.created_at,...Array.from({length:7},(_,i)=>r.answers["q"+(i+1)]||""),r.comment].map(q).join(",")));save("TAG-2026-11-17.csv",lines.join("\r\n"),"text/csv;charset=utf-8")};
